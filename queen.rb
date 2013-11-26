@@ -8,10 +8,4 @@ class Queen < SlidingPiece
     possible_moves(ORTHOGONALS) + possible_moves(DIAGONALS)
   end
 
-
-
-
-
-
-
 end

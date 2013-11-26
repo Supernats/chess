@@ -1,7 +1,3 @@
-require_relative 'sliding_piece'
-require_relative 'stepping_piece'
-require_relative 'pawn'
-
 class Piece
   attr_accessor :position, :color
   attr_reader :board
@@ -25,7 +21,7 @@ class Piece
   end
 
   def pos_available?(pos)
-    square = @board.sqaures[pos[0]][pos[1]]
+    square = @board.grid[pos[0]][pos[1]]
     square.nil? || square.color != @color
   end
 

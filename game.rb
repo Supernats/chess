@@ -1,4 +1,4 @@
-require_relative 'board'
+require_relative 'chess'
 
 class Game
 

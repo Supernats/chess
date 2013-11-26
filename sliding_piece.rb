@@ -1,7 +1,3 @@
-require_relative 'queen'
-require_relative 'rook'
-require_relative 'bishop'
-
 class SlidingPiece < Piece
 
   ORTHOGONALS = [[-1,0],[1,0],[0,1],[0,-1]]
@@ -20,9 +16,9 @@ class SlidingPiece < Piece
     y, x = @position
     moves = []
     while pos_in_bounds?([y, x]) #&& pos_available?([y,x])
+      moves << [y, x] unless [y, x] == @position
       y += dy
       x += dx
-      moves << [y, x]
     end
     moves
   end
