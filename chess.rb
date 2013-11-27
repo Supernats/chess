@@ -11,15 +11,12 @@ require_relative 'pawn'
 
 if __FILE__ == $PROGRAM_NAME
   b = Board.new
-  q = Queen.new board: b, position: [3,3], color: "white"
-  k = King.new board: b, position: [2,2]
-  kn = Knight.new board: b, position: [5,5]
 
-  p q.moves
-  puts " "
-  p k.moves
-  puts
-  p kn.moves
+  p2 = Pawn.new board: b, position: [2,2], color: "black"
+  p1 = Pawn.new board: b, position: [3,3], color: "white"
+
+
+  p b.grid
 
 end
 
