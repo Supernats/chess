@@ -15,8 +15,10 @@ class SlidingPiece < Piece
     dy, dx = delta
     y, x = @position
     moves = []
-    while pos_in_bounds?([y, x]) #&& pos_available?([y,x])
+    while pos_in_bounds?([y, x])
+      break unless pos_available?([y,x])
       moves << [y, x] unless [y, x] == @position
+      break unless @board[y, x].nil?
       y += dy
       x += dx
     end

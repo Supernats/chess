@@ -43,6 +43,26 @@ class Board
   end
 
   def in_check?(color)
+    opponent_moves = []
+    color == "white" ? opponent_color = "black" : opponent_color = "white"
+    opponent_pieces = find_pieces(opponent_color)
+    opponent_pieces.each do |piece|
+      opponent_moves += piece.moves
+    end
+    p opponent_moves
+    opponent_moves.any? do |move|
+      self[move[0],move[1]].class == King
+    end
+  end
+
+  def find_pieces(color)
+    pieces = []
+    @grid.each do |row|
+      row.each do |space|
+        pieces << space if !space.nil? && space.color == color
+      end
+    end
+    pieces
   end
 
 

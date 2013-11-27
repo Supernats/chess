@@ -14,30 +14,26 @@ if __FILE__ == $PROGRAM_NAME
 
  b.to_s
  puts
- b.move([6,0],[4,0])
+ b.move([6,3],[5,3])
+ p b.in_check?("white")
  b.to_s
  puts
- b.move([1,1],[3,1])
+ b.move([1,3],[2,3])
  b.to_s
  puts
- b.move([3,1],[4,0])
+ p b.move([0,4],[4,0])
  b.to_s
- p b[4,0]
+ p b.in_check?("white")
 
- duped_board = b.deep_dup
- duped_board.to_s
 
- duped_board.move([7,0],[5,0])
- duped_board.to_s
 
- puts "REAL BOARD:"
- b.to_s
 
 
 
 
 
 end
+
 
 
 
