@@ -33,7 +33,7 @@ class Pawn < Piece
       forward_diffs << [attack_vector,0]
       if y == pawn_row
         pos2 = [y + attack_vector*2, x]
-        forward_diffs << [attack_vector*2,0] if pos_available(pos2)
+        forward_diffs << [attack_vector*2,0] if pos_available?(pos2)
       end
     end
     forward_diffs

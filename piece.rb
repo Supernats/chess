@@ -37,7 +37,10 @@ class Piece
   end
 
   def move(end_pos)
-    @position = end_pos if moves.include?(end_pos)
+    if moves.include?(end_pos)
+      @position = end_pos
+      true
+    end
   end
 
   def pos_in_bounds?(pos)

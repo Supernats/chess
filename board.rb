@@ -16,9 +16,36 @@ class Board
 
   def to_s
     @grid.each do |line|
-      puts line.join(" ").to_s + "\n"
+      mapped_line = line.map do |space|
+        space.nil? ? " " : space
+      end
+      puts mapped_line.join(" ").to_s + "\n"
     end
   end
+
+  def move(start_pos, end_pos)
+    piece = self[start_pos[0],start_pos[1]]
+    if piece.move(end_pos)
+      self[end_pos[0],end_pos[1]] = piece
+      self[start_pos[0],start_pos[1]] = nil
+    end
+  end
+
+  def deep_dup
+    duped_board = self.dup
+    duped_board.grid = Array.new(8) { Array.new(8, nil) }
+    @grid.each_with_index do |row, row_index|
+      row.each_with_index do |space, space_index|
+        duped_board[row_index,space_index] = space.dup unless space.nil?
+      end
+    end
+    duped_board
+  end
+
+  def in_check?(color)
+  end
+
+
 
 
   def setup_pieces
