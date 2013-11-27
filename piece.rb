@@ -1,6 +1,6 @@
 class Piece
-  attr_accessor :position, :color
-  attr_reader :board
+  attr_accessor :position
+  attr_reader :board, :color
 
   def initialize(options = {})
     @position = options[:position]
