@@ -14,10 +14,10 @@ class Pawn < Piece
   def set_diffs
     diag_diffs = []
     y, x = @position
-    [[attack_vector,-1],[attack_vector,1]].each do |pos|
-      checked_square = @board.grid[pos[0] + y][pos[1] + x]
+    [[attack_vector, -1],[attack_vector, 1]].each do |diff|
+      checked_square = @board.grid[diff[0] + y][diff[1] + x]
       if !checked_square.nil? && checked_square.color != @color
-        diag_diffs << pos
+        diag_diffs << diff
       end
     end
     diag_diffs + forward_diffs
@@ -29,16 +29,24 @@ class Pawn < Piece
     # => Checking one move forward
     forward_diffs = []
     pos1 = [y + attack_vector, x]
-    forward_diffs << [attack_vector,0] if pos_in_bounds?(pos1) && pos_available?(pos1)
-    if y == pawn_row
-      pos2 = [y + attack_vector*2, x]
-      forward_diffs << [attack_vector*2,0] if pos_in_bounds?(pos2)
+    if pos_available?(pos1) && pos_in_bounds?(pos1)
+      forward_diffs << [attack_vector,0]
+      if y == pawn_row
+        pos2 = [y + attack_vector*2, x]
+        forward_diffs << [attack_vector*2,0] if pos_available(pos2)
+      end
     end
     forward_diffs
   end
 
   def attack_vector
     @color == "white" ? -1 :  1
+  end
+
+  def pos_available?(pos)
+    # @board[pos[0], pos[1]]
+    square = @board[pos[0],pos[1]]
+    square.nil?
   end
 
 
