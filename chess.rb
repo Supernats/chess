@@ -12,15 +12,7 @@ require_relative 'pawn'
 if __FILE__ == $PROGRAM_NAME
   b = Board.new
 
-  p1= Pawn.new board: b
-  p2= Pawn.new board: b
-
-  b.set_piece(p1,[6,0],"white")
-  b.set_piece(p2,[5,0],"black")
-
-
-  p p2.moves
-  p p1.moves
+ b.to_s
 
 end
 
