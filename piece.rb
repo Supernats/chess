@@ -2,23 +2,21 @@
 
 class Piece
   SYMBOLS = {
-    "white" => {
+    :white => {
       "King" => "♔",
       "Queen" => "♕",
       "Knight" => "♘",
       "Rook" => "♖",
       "Bishop" => "♗",
       "Pawn" => "♙"
-
     },
-    "black" => {
+    :black => {
       "King" => "♚",
       "Queen" => "♛",
       "Knight" => "♞",
       "Rook" => "♜",
       "Bishop" => "♝",
       "Pawn" => "♟"
-
     }
   }
 

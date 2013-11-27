@@ -14,11 +14,13 @@ class SlidingPiece < Piece
   def check_dir(delta)
     dy, dx = delta
     y, x = @position
+    y += dy
+    x += dx
     moves = []
     while pos_in_bounds?([y, x])
       break unless pos_available?([y,x])
-      moves << [y, x] unless [y, x] == @position
-      break unless @board[y, x].nil?
+      moves << [y, x]
+      break if @board[y, x]
       y += dy
       x += dx
     end

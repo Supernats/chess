@@ -40,7 +40,7 @@ class Pawn < Piece
   end
 
   def attack_vector
-    @color == "white" ? -1 :  1
+    @color == :white ? -1 :  1
   end
 
   def pos_available?(pos)

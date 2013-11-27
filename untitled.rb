@@ -1,0 +1,3 @@
+class InCheckError < StandardError
+
+end
