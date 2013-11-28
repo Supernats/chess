@@ -22,7 +22,7 @@ class Piece
 
   attr_accessor :position, :color, :board
 
-  def initialize(options = {})
+  def initialize(options)
     @position = options[:position]
     @color = options[:color]
     @board = options[:board]

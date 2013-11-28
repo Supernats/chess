@@ -28,6 +28,8 @@ class Board
     if piece.move(end_pos)
       self[end_pos[0],end_pos[1]] = piece
       self[start_pos[0],start_pos[1]] = nil
+    else
+      raise StandardError, "You can't move there"
     end
   end
 
