@@ -20,14 +20,15 @@ class Piece
     }
   }
 
-  attr_accessor :position, :color
-  attr_reader :board
+  attr_accessor :position, :color, :board
 
   def initialize(options = {})
     @position = options[:position]
     @color = options[:color]
     @board = options[:board]
   end
+
+
 
   def moves
     raise NotImplementError.new("move has not been implemented for this piece")

@@ -13,6 +13,9 @@ class Knight < SteppingPiece
     possible_moves(KNIGHT_DIFFS)
   end
 
+  def dup
+    duped_piece = Knight.new(color: self.color, position: self.position.dup)
+  end
 
 
 end

@@ -8,4 +8,8 @@ class King < SteppingPiece
     possible_moves(KING_DIFFS)
   end
 
+  def dup
+    duped_piece = King.new(color: self.color, position: self.position.dup)
+  end
+
 end

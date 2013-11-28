@@ -8,5 +8,9 @@ class Rook < SlidingPiece
     possible_moves(ORTHOGONALS)
   end
 
+  def dup
+    duped_piece = Rook.new(color: self.color, position: self.position.dup)
+  end
+
 
 end

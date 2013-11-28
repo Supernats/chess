@@ -1,5 +1,9 @@
 class Pawn < Piece
 
+  def dup
+    duped_piece = Pawn.new(color: self.color, position: self.position.dup)
+  end
+
   def moves
     moves = []
     set_diffs.each do |diff|
