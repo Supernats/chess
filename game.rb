@@ -8,7 +8,7 @@ class Game
   end
 
   def play
-    @board.to_s
+    print @board.to_s
     until @board.over?
       take_turn
     end
@@ -37,7 +37,7 @@ class Game
       puts "Invalid move!"
       retry
     end
-    @board.to_s
+    print @board.to_s
     @turn = @turn == :white ? :black : :white
   end
 

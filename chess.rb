@@ -1,3 +1,4 @@
+require 'colorize'
 require_relative 'in_check_error'
 require_relative 'board'
 require_relative 'piece'
