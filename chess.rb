@@ -12,14 +12,6 @@ require_relative 'pawn'
 
 if __FILE__ == $PROGRAM_NAME
  b = Board.new
- b.move([6,5],[5,5])
- b.move([1,4],[2,4])
- #b.move([6,6],[4,6])
- b.move([0,3],[4,7])
- b.to_s
- p b.valid_moves(:white)
- p b.check_mate?(:white)
- p b.in_check?(:white)
 
  # p b.opponent_moves(:white)
  # p b.in_check?(:white)

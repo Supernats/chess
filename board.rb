@@ -61,7 +61,7 @@ class Board
     end.any? { |position| self[position[0],position[1]].is_a?(King) }
   end
 
-  def check_move_against_check(start_pos, end_pos)
+  def check_move_against_check?(start_pos, end_pos)
     duped_board = self.dup
     duped_board.move(start_pos, end_pos)
     duped_board.in_check?(self[start_pos[0],start_pos[1]].color)
@@ -75,7 +75,7 @@ class Board
       end
     end
     valid_moves.reject do |move|
-      check_move_against_check(move[0], move[1])
+      check_move_against_check?(move[0], move[1])
     end
   end
 
