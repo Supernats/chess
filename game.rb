@@ -29,12 +29,12 @@ class Game
       end_pos = gets.chomp
       end_pos = end_pos.split(",").map(&:to_i)
       if @board.check_move_against_check?(start_pos, end_pos)
-        puts "You can't move into check"
+        raise "You can't move into check"
       else
         @board.move(start_pos,end_pos)
       end
-    rescue
-      puts "Invalid move!"
+    rescue => e
+      puts e.message
       retry
     end
     print @board.to_s
