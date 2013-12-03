@@ -15,18 +15,23 @@ class Board
   end
 
   def to_s
-    board_string =
-    @grid.each_with_index do |line, line_index|
-      line.each_with_index do |space, space_index|
-
-        space_string = space.nil? ? "  " : space + " "
-        # if (line_index.even? && space_index.even?) || (line_index.odd? && space_index.odd?)
- #          @grid[line_index][space_index] = space_string.colorize.on_white
- #        end
-      end
-      board_string += mapped_line.join(" ") + "\n"
-    end
-    board_string
+    @grid.each_with_index.map do |row, row_index|
+      row.each_with_index.map do |col, col_index| 
+        if col.nil?
+          if (row_index.even? && col_index.even?) || (row_index.odd? && col_index.odd?)
+            "   ".colorize( :red ).on_white 
+          else
+            "   "
+          end
+        else
+          if (row_index.even? && col_index.even?) || (row_index.odd? && col_index.odd?) 
+            " #{col} ".colorize( :red ).on_white 
+          else
+            " #{col} ".colorize( :red )
+          end
+        end
+      end.join("") + "\n"
+    end.join("") + "\n"
   end
 
   def move(start_pos, end_pos)
