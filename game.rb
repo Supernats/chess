@@ -17,6 +17,9 @@ class Game
 
   def take_turn
     begin
+      if @board.in_check?(@turn)
+        puts "You are in check!"
+      end
       puts "#{@turn.to_s}, it's your turn"
       puts "Please select a piece"
       start_pos = gets.chomp
