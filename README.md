@@ -1,3 +1,4 @@
-chess
+Chess
 =====
-This was my first attempt at chess. It's a cli chess game that uses unicode characters for all the pieces and a two-dimensional array to store the state of the game. Much of the game logic is predicated on testing possible moves on a cloned version of the board's current state. It does not implement En passant or castling. It is however colorized.
+
+For a first crack at chess, I'm quite pleased with it. Interaction is completely CLI, which is cool if you miss your old Kaypro. Checks against check(mate) are handled by a 'dup and check' system for validation. Inheritance is used wherever possible, even if the base class isn't an actual chess piece. The more complex maneuvers of castling and en passant are not implemented, but it DOES have color. This project was done pairing with gkchestertron.  
